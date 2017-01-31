@@ -1,66 +1,49 @@
 \section{Storing Groceries}
 
-The robot must help put the newly bought groceries in the right place.
-The owner of the robot will put the items on a table and the robot helps the owner by putting the groceries in the right place in the cupboard.
-What the right place for an item is defined by the objects already in the cupboard: objects of the same type must be placed together.
-For example, the new pack of cookies from the table must be placed by the almost empty pack cookies in the cupboard.
-
-In the cupboard and on the table, there will be both known, alike and unknown objects. 
-
-\subsection{Example}
-For example, say the known objects include the classes ``Chips'', ``Apple'', ``Milk'', ``Coffee'' and ``Tea''. 
-There are three unknown object classes: ``Pear'', ``Cookies'' and ``Butter''.
-These class names are unknown to the robot, but a human will immediately infer the class names.
-For the robot's recognition, it suffices to be able to give the ``Cookies'' all the same label, eg. ``label0''. 
+The robot must store the groceries on their right place, which is where other objects of the same category are.
 
 \subsection{Goal}
-The robot has to identify, grasp and correctly place several objects at different heights or positions.
-To start the storing the groceries, the robot needs to open the cupboard. 
+The robot has to correctly identify and manipulate objects at different heights, grouping them by category and likelihood.
 
 \subsection{Focus}
-This test focuses on object detection, manipulation and object recognition.
+This test focuses on the detection and recognition of objects and their features, as well as object manipulation.
 
 \subsection{Setup}
-In the arena, there will be a table and cupboard close together, where the robot does not have to spend a lot of time driving between the two. 
-
 \begin{enumerate}
-\item \textbf{Location:} One of the bookcases or cupboards in the apartment is used for this test, one where a table is near or can be put. 
-The robot will start somewhere between the cupboard and the table. 
-The cupboard has at least 5 shelves between 0.30m and 1.80m from the ground. 
-\item \textbf{Cupboard:} The cupboard contains 10 objects from the Scenario Objects \ref{rule:scenario_objects}.
-\item \textbf{Door:} The cupboard has a single door, which is closed initially.
-The robot may ask a human to open the door, after which a referee will open the door. 
-\item \textbf{Table:} 10 objects from the Scenario Objects \ref{rule:scenario_objects} will be placed on the table. If not all 10 objects fit the on the table, remaining objects can be added during the test.
+\item \textbf{Location:} This test is run in one room of the arena, modified to have a table or trolley (at grasp distance) close to a shelf. The robot will start at a random distance between 1.0m and 1.5m from the bookcase.
+\item \textbf{Cupboard:} Any shelf from the arena allocating 10 objects (3 known, 3 alike, 3 unknown, 1 container; see \ref{rule:scenario_objects}) grouped by category and likeliness. 
+\item \textbf{Door:} The cupboard has a single door, which is initially closed. At least one object group is accessed through the door.
+\item \textbf{Table:} Any table from the arena, having on top 10 shuffled objects (probably stacked, 3 known, 3 alike, 3 unknown, 1 container; see \ref{rule:scenario_objects})
 \end{enumerate}
 
 Please note that there may be more than one object in each shelf to fit all objects in, especially after the robot fills the shelves. 
 
 \subsection{Task}
 \begin{enumerate}
-\item \textbf{Opening door:} The cupboard's door is closed and must be opened.
-\item \textbf{Searching for objects:} The robot approaches the table from its nearby starting position and starts searching for objects. 
-\item \textbf{Grasping objects:} Any object found on the table by the robot may be grasped by it. 
-  Before or right after grasping the object, the robot may announce which object it has found. 
-  % The scoring only takes the classifications in the report into account. 
-\item \textbf{Placing objects:} After grasping the object, the robot has to safely place it (Section \refsec{rule:scenario_objects}) near the item of the same class in the cupboard. 
-  The object must stay there for at least 10 seconds.
-\item 
-\item \textbf{Repeat:} This repeats until the time is up or all groceries are stored. 
+\item \textbf{Reach the cupboard:} The robot approached to the cupboard (and the table) at grasp distance.
+\item \textbf{Inspection:} The robot inspects both, the cupboard and the table.
+\item \textbf{Opening door:} The robot opens the cupboard's door and announces which type of objects are stored inside.
+\item \textbf{Moving objects:} The robot takes an object from the table and safely places it into the shelf (see Section \refsec{rule:scenario_objects}), close to the other objects in the shelf that belong to the same category. The robot must clearly announce the name and category of the object being moved.
 \end{enumerate}
 
 \subsection{Additional rules and remarks}
 \begin{enumerate}
-\item \textbf{No setup:} There is no setup time.
-\item \textbf{Startup:} The robot must be started with a simple voice command or via a start button (Section \refsec{rule:start_signal}). 
-\item \textbf{Single try:} The robot must be able to start from the first attempt. There is no restart for this test. If the robot is unable to start it must be removed immediately.
-\item \textbf{Collisions:} Slightly touching the the cupboard is tolerated.
-  Driving over the objects or any other form of a major collision is not allowed, and the referees directly stop the robot (Section \refsec{rule:safetyfirst}).
-\item \textbf{Recognition report:} Robots must create a PDF report file including the list of recognized objects with a picture showing the object and the object name/label.
-  This file may be stored on a USB-stick on the robot which is given to the TC after the test. The PDF file name should include the team name and a timestamp. 
-  Furthermore, it must be unmistakable which label belongs to which object. Objects must also be recognizable in the report by a human (TC) so that it can be scored. 
-  An overview of the shelf and/or table with bounding boxes and labels attached to the bounding boxes is handy for the TC to score.
-  False positives in the report (labeling an object which is not an object but e.g. the edge of the shelf) are penalized.
-%\item \textbf{QR Codes:} The team may request to use a special set ob objects identified with QR codes if the robot is not able to correctly recognize the objects. The use of this special QR-object-set must be announced to the TC at least on hour before the test starts. When QR Codes are used, no points are given for object recognition.
+  \item \textbf{Startup:} The robot starts with a Start Button (see Section \refsec{rule:start_signal})
+  \item \textbf{Collisions:} Slightly touching the the cupboard is tolerated. However, the robot will be stopped immediately if it drives over or smashes the objects/shelf (see section \refsec{rule:safetyfirst}).
+  \item \textbf{Cupboard specifications:} The cupboard is any shelf from the arena and has
+  \begin{itemize}
+    \item[\textbf{DSPL}] At least 3 shelves between 0.90m and 1.50m from the ground.
+    \item[\textbf{SSPL}] At least 3 shelves between 0.90m and 1.50m from the ground.
+    \item[\textbf{OPL}] At least 5 shelves between 0.30m and 1.80m from the ground.
+  \end{itemize}
+  \item \textbf{Cupboard's door specifications:} The cupboard has a door that opens outside (i.e., not sliding). The door has a handle or knob is coloured to contrast with the shelve.
+  \item \textbf{Recognition report:} Robots must create a report file in PDF format summarizing the the list of recognized objects, and containing the following information:
+  \begin{itemize}
+    \item A picture of the scene where all recognized objects are labeled and enclosed in a bounding box.
+    \item A picture showing each object, it's name/label, and category.
+  \end{itemize}
+
+  The report file must be delivered to the TC in a USB-stick after the test. The PDF file name should include the team name and a timestamp.  Objects in the report must be recognizable by a human (TC) so that it can be scored. In case of doubt, no points will be scored.
   \item \textbf{Clear area: } The robot may assume that the direct vicinity of the cupboard and table are clear and that the robot can move slightly backwards for its task. 
 \end{enumerate}
 
@@ -71,14 +54,27 @@ Please note that there may be more than one object in each shelf to fit all obje
    \item Plans
   \end{itemize}
 
-\subsection{Referee instructions}
+\subsection{OC instructions}
 
+\textbf{2 hours before the test}
+\begin{itemize}
+    \item Anounce the startup location for robots.
+\end{itemize}
+
+\subsection{Referee instructions}
 The referee needs to
 \begin{itemize}
-\item Place the objects in the cupboard and a few of the same class on the table. New items can be placed when there is room or the robot asks for more objects. 
-\item Close the door of the cupboard. 
-\item 5 or the 10 of the objects in the cupboard must be unknown objects, with 5 corresponding unknown objects on the table
+\item Place the objects in the cupboard and on the table.
+\item Shut the cupboard's door.
 \end{itemize}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.25\textwidth]{images/storing_groceries.png}
+  \vspace{-10pt}
+  \label{fig:storing_groceries}
+  \caption{Example shelf where objects will be placed.}
+\end{figure}
 
 \subsection{Score sheet}
 \input{scoresheets/StoringGroceries.tex}

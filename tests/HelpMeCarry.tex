@@ -3,7 +3,7 @@ The robot's owner went shopping for groceries and needs help carrying the grocer
 The whole family helps, as well as the robot. 
 
 \subsection{Goal}
-The robot must bring some items from outside the arena inside the arena.
+The robot must help bring some items from outside the arena inside the arena.
 
 \subsection{Focus}
 This test focuses on following and navigation in an unknown environment. 
@@ -24,14 +24,17 @@ The operator (the robot's owner) has a set of bags and boxes that need to be car
 
 \subsection{Task (OPL \& DSPL)}
 \begin{enumerate}
-\item \textbf{Start:} The robot is waiting somewhere in the apartment. The operator approaches the robot and tells it to follow. E.g. ``Robot, follow me''
-\item \textbf{Following:} The robot starts following the operator, who guides the robot to the car containing the groceries. 
-\item \textbf{Arrive at car:} When at the car, the operator tells the robot they have reached the car and to remember this location. E.g. ``Remember: this location is the car''. 
-\item \textbf{Handover groceries:} The operator gives the robot a command to carry something, e.g. a box or a bag.  E.g. ``Carry this box''
-  The robot puts up its arms and the operator gives the item to the robot.
-\item \textbf{Command destination:} The operator tells where the given item should go, one of the rooms in the arena. E.g. ``Bring this to the kitchen''
-\item \textbf{Delivery:} The robot then goes inside the house to deliver the item to the destination. 
-\item \textbf{Guiding:} Close to the destination, a human will be waiting. The robot must ask the human for help in carrying stuff and the robot must guide that helping human to the car.
+	\item \textbf{Start:} The robot is waiting somewhere in the apartment. The operator approaches the robot and tells it to follow. E.g. ``Robot, follow me''
+	\item \textbf{Following:} The robot starts following the operator, who guides the robot to the car containing the groceries. 
+	\item \textbf{Arrive at car:} When at the car, the operator tells the robot they have reached the car and to remember this location. E.g. ``Remember: this location is the car''. 
+	\item \textbf{Handover groceries:} The operator gives the robot a command to carry something, e.g. a box or a bag.  E.g. ``Carry this box''
+	  The robot puts up its arms and the operator gives the item to the robot.
+	\item \textbf{Command destination:} The operator tells where the given item should go, one of the rooms in the arena. E.g. ``Bring this to the kitchen''
+	\item \textbf{Delivery:} The robot then goes inside the house to deliver the item to the destination. 
+	\item \textbf{Guiding:} Close to the destination, a human will be waiting. The robot must ask the human for help in carrying groceries and the robot must guide that helping human to the car.
+		\begin{itemize}
+			\item While guiding the helper, the robot must open the apartment door before it can go outside.
+		\end{itemize}
 \end{enumerate}
 
 \subsection{Task (SSPL)}
@@ -40,9 +43,15 @@ The operator (the robot's owner) has a set of bags and boxes that need to be car
 	\item \textbf{Following:} The robot starts following the operator, who guides the robot to the car containing the groceries. 
 	\item \textbf{Arrive at car:} When at the car, the operator tells the robot they have reached the car and to remember this location. E.g. ``Remember: this location is the car''. 
 	\item \textbf{Asked for help:} The operator gives the robot a command to find help for unloading the car.  E.g. ``Ask Gary in the kitchen to help me''.
-	The robot must go find a person in the commanded room. 
-	\item \textbf{Asking for help:} The robot asks the person for help with carrying stuff.
+	\item \textbf{Finding help:} The robot must go find a person in the commanded room.
+		\begin{itemize}
+			\item While underway, a person will step in the robot's part and ask for the time. The person will move away after the time is stated by the robot. 
+		\end{itemize}
+	\item \textbf{Asking for help:} The robot asks the person to help carry the groceries.
 	\item \textbf{Guiding:} The robot then guides the helper to the car.
+		\begin{itemize}
+			\item While underway, another person will distract the helper that is following the robot. The robot must be aware of this, and urge the helper to keep following. 
+		\end{itemize}
 \end{enumerate}
 
 The robot may encounter some obstacles while navigating and the robot must deal and avoid or otherwise deal with the obstacle. 
@@ -51,8 +60,6 @@ The possible obstacles are:
 	\item \textbf{Small object:} Small object. For example, someone has dropped a piece of fruit (like an apple or mandarin) while carrying the groceries inside.
 	\item \textbf{3D Object:} A bar table, normal table, rolling chair: some object that is wider at its top than on its bottom, 
 	  thus requiring more than just a laser scanner mounted near the ground to avoid obstacles. 
-	\item \textbf{Smart obstacle:} A person to whom the robot may speak to and kindly ask to move away. 
-	  When interacting with people, the robot must look at the person and make clear is speaking with him/her.
 	\item \textbf{Moving people:} As the whole family living in the house is helping getting the groceries from the car, 
 	  additional to the robot there will be some people also going back and forth between the car and various rooms. 
 	  The robot will encounter these and deal with them. These people are friendly to the robot and will not actively block it but the robot must also not block them. 
@@ -81,7 +88,7 @@ The possible obstacles are:
 The referee needs to
 \begin{itemize}
 \item Distribute some objects over some boxes and shopping bags.
-\item Destignate a few ``car parking locations'' from which the objects must be carried.
+\item Designate a few ``car parking locations'' from which the objects must be carried.
 \end{itemize}
 
 \subsection{Score sheet}

@@ -98,68 +98,101 @@
 \input{scoresheets/PosterSession}
 \end{scoresheet}
 
-%%% STAGE I %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%
+%%                                                                         %%
+%% STAGE I                                                                 %%
+%%                                                                         %%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%
 
-%%% STAGE 1 TESTS GO HERE %%%
 \renewcommand{\retryAvailable}{false}
 \renewcommand{\continueAvailable}{true}
-
 \renewcommand{\threeAttempts}{true}
+%%% STAGE 1 TESTS GO HERE %%%
+
+% Cocktail Party
+% \renewcommand{\currentTest}{Cocktail Party}
+% \begin{scoresheet}
+% \input{scoresheets/CocktailParty.tex}
+% \end{scoresheet}
+
+% GPSR
 \renewcommand{\currentTest}{General Purpose Robot}
 \begin{scoresheet}
 \input{scoresheets/GPSR.tex}
 \end{scoresheet}
 
-\renewcommand{\continueAvailable}{false}
-
-\renewcommand{\currentTest}{Storing Groceries}
-\begin{scoresheet}
-\input{scoresheets/StoringGroceries.tex}
-\end{scoresheet}
-
-\renewcommand{\currentTest}{Navigation}
-\begin{scoresheet}
-\input{scoresheets/Navigation.tex}
-\end{scoresheet}
-
-% Speech and Person Recognition
-\renewcommand{\currentTest}{Speech and Person Recognition}
-\begin{scoresheet}
-\input{scoresheets/SPR.tex}
-\end{scoresheet}
-
+% Help-me-carry
 \renewcommand{\currentTest}{Help-me-carry}
 \begin{scoresheet}
 \input{scoresheets/HelpMeCarry.tex}
 \end{scoresheet}
 
-\renewcommand{\threeAttempts}{false}
-
-% %%% STAGE II %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%% STAGE 2 TESTS GO HERE %%%
-\renewcommand{\currentTest}{TidyUp}
+% Speech and Person Recognition
+\renewcommand{\continueAvailable}{false}
+\renewcommand{\currentTest}{Speech and Person Recognition}
 \begin{scoresheet}
-\input{scoresheets/TidyUp.tex}
+\input{scoresheets/SPR.tex}
+\end{scoresheet}
+\renewcommand{\continueAvailable}{true}
+
+% Storing Groceries
+\renewcommand{\currentTest}{Storing Groceries}
+\begin{scoresheet}
+\input{scoresheets/StoringGroceries.tex}
 \end{scoresheet}
 
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%
+%%                                                                         %%
+%% STAGE II                                                                %%
+%%                                                                         %%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%
+
+\renewcommand{\retryAvailable}{true}
+\renewcommand{\continueAvailable}{true}
+\renewcommand{\threeAttempts}{false}
+%%% STAGE 2 TESTS GO HERE %%%
+
+% EEGPSR
+\renewcommand{\currentTest}{EEGPSR}
+\begin{scoresheet}
+\input{scoresheets/EEGPSR.tex}
+\end{scoresheet}
+
+% Open Challenge
+\renewcommand{\retryAvailable}{false}
+\renewcommand{\continueAvailable}{false}
 \renewcommand{\currentTest}{Open challenge}
 \begin{scoresheet}
 \input{scoresheets/OpenChallenge.tex}
 \end{scoresheet}
-
-\renewcommand{\retryAvailable}{true}
 \renewcommand{\continueAvailable}{true}
+\renewcommand{\retryAvailable}{true}
 
+% Restaurant
 \renewcommand{\currentTest}{Restaurant}
 \begin{scoresheet}
 \input{scoresheets/Restaurant.tex}
 \end{scoresheet}
 
-\renewcommand{\currentTest}{EEGPSR}
+%TidyUp
+\renewcommand{\currentTest}{TidyUp}
 \begin{scoresheet}
-\input{scoresheets/EEGPSR.tex}
+\input{scoresheets/TidyUp.tex}
 \end{scoresheet}
+
+
+
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%
+%%                                                                         %%
+%% FINALS                                                                  %%
+%%                                                                         %%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%
+
+\renewcommand{\retryAvailable}{false}
+\renewcommand{\continueAvailable}{false}
+\renewcommand{\threeAttempts}{false}
+%%% SCORESHEETS FOR FINALS GO HERE %%%
 
 \renewcommand{\currentTest}{Final Demonstration -- Jury Evaluation}
 \begin{scoresheet}
